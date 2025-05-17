@@ -2,18 +2,13 @@
 
 import ContactForm from "@/components/contact/ContactForm";
 import ContactIntro from "@/components/contact/ContactIntro";
-import Header from "@/components/common/header";
 import HeroSection from "@/components/common/HeroSection";
-import Navbar from "@/components/common/Navbar";
 
 
 
 export default function ContactPage() {
   return (
     <div className="max-w-7xl mx-auto px-6 font-sans">
-      <Header />
-      <Navbar active="Contact" />
-
       <HeroSection
         title="Contact - Notary Nexus & Apostille Services"
         imageUrl="/office-building.png"

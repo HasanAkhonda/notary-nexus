@@ -3,17 +3,14 @@
 import BioDescription from "@/components/about/BioDescription";
 import BioHighlight from "@/components/about/BioHighlight";
 import BioImage from "@/components/about/BioImage";
-import Header from "@/components/common/header";
 import HeroSection from "@/components/common/HeroSection";
-import Navbar from "@/components/common/Navbar";
 
 
 
 export default function AboutPage() {
   return (
     <div className="w-full max-w-7xl mx-auto font-sans">
-      <Header />
-      <Navbar active="About" />
+     
 
       <HeroSection
         title="About - Notary Nexus & Apostille Services"
