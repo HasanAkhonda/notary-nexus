@@ -3,11 +3,20 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const navItems = ["Home", "About", "Resources", "FAQ", "Contact"];
 
-export default function Navbar({ active }: { active: string }) {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (item: string) => {
+    if (item.toLowerCase() === "home") {
+      return pathname === "/";
+    }
+    return pathname === `/${item.toLowerCase()}`;
+  };
 
   return (
     <nav className="w-full border-b border-gray-300 px-6 py-4 bg-white sticky top-0 z-50">
@@ -20,8 +29,8 @@ export default function Navbar({ active }: { active: string }) {
             <li key={item}>
               <Link
                 href={`/${item.toLowerCase() === "home" ? "" : item.toLowerCase()}`}
-                className={`hover:text-teal-600 transition-colors duration-200 ${
-                  active === item ? "text-teal-600 font-semibold" : "text-gray-800"
+                className={`transition-colors duration-200 ${
+                  isActive(item) ? "text-blue-600" : "hover:text-teal-600"
                 }`}
               >
                 {item}
@@ -47,7 +56,7 @@ export default function Navbar({ active }: { active: string }) {
               <Link
                 href={`/${item.toLowerCase() === "home" ? "" : item.toLowerCase()}`}
                 className={`block py-1 transition-colors duration-200 ${
-                  active === item ? "text-teal-600 font-semibold" : "text-gray-800"
+                  isActive(item) ? "text-blue-600" : ""
                 }`}
                 onClick={() => setOpen(false)}
               >
